@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/entity-logo.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f766e" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="LeaveFlow" />
+    <title>نظام إدارة واعتماد الإجازات - الجهة الحكومية</title>
+    <meta name="description" content="نظام إدارة واعتماد الإجازات ومتابعتها - الجهة الحكومية" />
+    <meta property="og:image" content="/pwa-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="/pwa-512x512.png">
+    <style>
+      #boot { min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f8fafc; font-family: system-ui, sans-serif; text-align: center; color: #0f172a; }
+      #boot img { width: 96px; height: 96px; object-fit: contain; background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 12px; box-sizing: border-box; }
+      #boot strong { margin-top: 20px; font-size: 18px; }
+      #boot span { margin-top: 5px; color: #64748b; font-size: 13px; }
+      #boot i { width: 56px; height: 3px; margin-top: 25px; border-radius: 9px; background: #0f766e; animation: boot-pulse 1.2s ease-in-out infinite alternate; }
+      #boot .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+      @keyframes boot-pulse { from { opacity: .35; transform: scaleX(.55); } to { opacity: 1; transform: scaleX(1); } }
+      @media (prefers-reduced-motion: reduce) { #boot i { animation: none; } }
+    </style>
+  </head>
+  <body>
+    <div id="root"><div id="boot" role="status" aria-live="polite"><img src="/entity-logo.png" alt="شعار الجهة الحكومية" /><strong>نظام إدارة واعتماد الإجازات</strong><span>الجهة الحكومية</span><i aria-hidden="true"></i><span class="sr-only">جارٍ تحميل النظام</span></div></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

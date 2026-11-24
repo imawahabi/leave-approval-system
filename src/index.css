@@ -1,0 +1,545 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    scrollbar-color: #cbd5e1 #f4f6f8;
+    scrollbar-width: thin;
+  }
+
+  html {
+    direction: rtl;
+    font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+    font-variant-numeric: lining-nums proportional-nums;
+    scrollbar-color: #cbd5e1 #f4f6f8;
+    scrollbar-width: thin;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font-family: inherit;
+    font-variant-numeric: lining-nums proportional-nums;
+    touch-action: manipulation;
+  }
+
+  /* Prevent iOS Safari auto-zoom on input focus (requires font-size >= 16px) */
+  @media screen and (max-width: 768px) {
+
+    input,
+    textarea,
+    select,
+    .input-field {
+      font-size: 16px !important;
+    }
+
+    .mobile-filter-control {
+      font-size: 14px !important;
+    }
+  }
+
+  body {
+    font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+    font-variant-numeric: lining-nums proportional-nums;
+    background-color: #f8fafc;
+    color: #1e293b;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Force English/Latin numerals everywhere - no Arabic-Indic digits */
+    font-feature-settings: "lnum" 1;
+    -moz-font-feature-settings: "lnum" 1;
+    -webkit-font-feature-settings: "lnum" 1;
+  }
+
+  /* Globally enforce Western Arabic (Latin) digits on all elements */
+  *,
+  *::before,
+  *::after {
+    font-variant-numeric: lining-nums proportional-nums !important;
+  }
+
+  /* Numbers direction always LTR even inside RTL context */
+  td[dir="ltr"],
+  span[dir="ltr"] {
+    direction: ltr;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  .sidebar-scrollbar {
+    scrollbar-color: #49617f #142744;
+    scrollbar-width: thin;
+  }
+
+  .sidebar-scrollbar::-webkit-scrollbar-track {
+    background: #142744;
+  }
+
+  .sidebar-scrollbar::-webkit-scrollbar-thumb {
+    background: #49617f;
+    border: 1px solid #142744;
+    border-radius: 999px;
+  }
+
+  .sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #647b98;
+  }
+
+  @media (min-width: 1024px) {
+    .app-content-scroll {
+      scrollbar-color: #cbd5e1 #f4f6f8;
+      scrollbar-width: thin;
+    }
+
+    .app-content-scroll::-webkit-scrollbar-track {
+      background: #f4f6f8;
+    }
+
+    .app-content-scroll::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 999px;
+    }
+
+    .app-content-scroll::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  }
+
+  :focus-visible {
+    outline: 2px solid #243e64;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl border border-slate-200;
+  }
+
+  .card-elevated {
+    @apply bg-white rounded-2xl border border-slate-200;
+  }
+
+  .input-field {
+    @apply w-full h-11 px-4 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 placeholder-slate-400 transition-colors focus:outline-none focus:border-teal-700 focus:ring-2 focus:ring-teal-700/15;
+  }
+
+  textarea.input-field {
+    @apply h-auto min-h-[80px] py-2.5;
+  }
+
+  .btn-primary {
+    @apply inline-flex h-11 items-center justify-center gap-2 px-4 rounded-xl bg-accent-400 text-primary-950 text-sm font-bold transition-colors hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400/40 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex h-11 items-center justify-center gap-2 px-4 rounded-xl bg-white border border-slate-300 text-slate-700 text-sm font-bold transition-colors hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-300/40 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply inline-flex h-11 items-center justify-center gap-2 px-4 rounded-xl bg-red-600 text-white text-sm font-semibold transition-colors hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500/20 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-slate-600 text-sm font-semibold transition-colors hover:bg-slate-100 focus:outline-none;
+  }
+
+  .table-header {
+    @apply px-4 py-3 text-right text-xs font-semibold text-slate-600;
+  }
+
+  .table-cell {
+    @apply px-4 py-3 text-sm text-slate-700;
+  }
+
+  .section-title {
+    @apply text-sm sm:text-base font-bold text-slate-900;
+  }
+
+
+
+  /* Flat, simple Mobile Navigation Tab Bar (Icon top, Text bottom) */
+  .mobile-nav {
+    @apply fixed inset-x-0 bottom-0 z-40 border-t border-slate-200/80 bg-white;
+    padding-bottom: max(env(safe-area-inset-bottom, 0px), 8px);
+    padding-top: 6px;
+    transform: translate3d(0, var(--mobile-nav-viewport-offset, 0px), 0);
+  }
+
+  .mobile-nav--hidden {
+    transform: translate3d(0, calc(100% + var(--mobile-nav-viewport-offset, 0px)), 0);
+  }
+
+  .mobile-nav-item {
+    @apply relative flex min-w-0 flex-1 flex-col items-center justify-center py-1 px-1 text-slate-400 transition-colors select-none;
+  }
+
+  .mobile-nav-item:active {
+    @apply scale-95;
+  }
+
+  .mobile-nav-item span {
+    @apply text-[11px] leading-tight text-center font-medium mt-1;
+  }
+
+  .mobile-nav-item-active {
+    @apply text-primary-800 font-bold;
+  }
+
+  .mobile-nav-item-active svg {
+    @apply text-primary-700 stroke-[2.2];
+  }
+
+  .mobile-nav-item-active span {
+    @apply font-bold text-primary-900;
+  }
+
+  .rank-label {
+    @apply inline-flex items-center gap-1 text-xs font-semibold text-slate-500;
+  }
+
+  .person-name {
+    @apply text-sm font-semibold text-slate-900;
+  }
+
+  .person-rank {
+    @apply text-xs text-slate-500 font-medium;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.25s ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .animate-fade-in,
+    .animate-slide-up {
+      animation: none;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .skeleton {
+    @apply bg-slate-200 rounded animate-pulse;
+  }
+
+  .safe-area {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* Keep shared button labels bold even when page-level Tailwind font utilities are present. */
+[class~="btn-primary"],
+[class~="btn-secondary"],
+[class~="btn-danger"],
+[class~="btn-ghost"] {
+  font-weight: 700;
+}
+
+.print-only {
+  display: none;
+}
+
+/* Print styles */
+@page {
+  size: A4 portrait;
+  margin: 14mm 12mm 16mm;
+}
+
+@media print {
+
+  aside,
+  header,
+  .mobile-nav {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: white !important;
+    color: #111827 !important;
+    font-size: 10pt;
+    width: 100% !important;
+    min-height: 0 !important;
+  }
+
+  #root,
+  #root>div,
+  #root>div>div,
+  main {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  .print-report-header {
+    margin-bottom: 8mm;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-report-identity {
+    display: flex;
+    align-items: center;
+    gap: 4mm;
+    padding-bottom: 4mm;
+    border-bottom: 1px solid #334155;
+  }
+
+  .print-report-identity img {
+    width: 16mm;
+    height: 16mm;
+    object-fit: contain;
+  }
+
+  .print-report-agency {
+    font-size: 8pt;
+    color: #475569;
+    font-weight: 700;
+  }
+
+  .print-report-office {
+    font-size: 12pt;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .print-report-system {
+    font-size: 8pt;
+    color: #475569;
+  }
+
+  .print-report-heading {
+    padding: 5mm 0 4mm;
+  }
+
+  .print-report-heading h1 {
+    font-size: 15pt;
+    line-height: 1.5;
+    font-weight: 700;
+    margin: 0 0 2mm;
+  }
+
+  .print-report-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2mm 6mm;
+    color: #475569;
+    font-size: 8.5pt;
+  }
+
+  .print-report-meta span+span::before {
+    content: '•';
+    margin-left: 6mm;
+    color: #94a3b8;
+  }
+
+  .print-report-summary {
+    display: flex;
+    gap: 8mm;
+    padding: 3mm 4mm;
+    background: #f1f5f9 !important;
+    border-right: 2px solid #0f766e;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-report-summary div {
+    display: flex;
+    align-items: baseline;
+    gap: 3mm;
+  }
+
+  .print-report-summary span {
+    font-size: 8pt;
+    color: #475569;
+  }
+
+  .print-report-summary strong {
+    font-size: 12pt;
+    color: #0f766e;
+  }
+
+  .print-report-summary-secondary span {
+    color: #94a3b8;
+  }
+
+  .print-report-summary-secondary strong {
+    font-size: 9pt;
+    font-weight: 500;
+    color: #64748b;
+  }
+
+  .print-report-frame {
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
+
+  .print-table-scroll,
+  .print-table-inner {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  .print-report-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: auto;
+    font-size: 8.5pt;
+  }
+
+  .print-report-table thead {
+    display: table-header-group;
+  }
+
+  .print-report-table tfoot {
+    display: table-row-group;
+  }
+
+  .print-report-table tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-report-table th,
+  .print-report-table td {
+    border: 1px solid #cbd5e1 !important;
+    padding: 2.5mm 2mm !important;
+    color: #111827 !important;
+    text-align: right;
+    vertical-align: top;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    line-height: 1.45;
+  }
+
+  .print-report-table th {
+    background: #e9eef2 !important;
+    font-size: 8pt;
+    font-weight: 700;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-report-table th:first-child {
+    width: 6mm;
+  }
+
+  .print-report-table tbody tr:nth-child(even) td {
+    background: #f8fafc !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-report-table .person-name,
+  .print-report-table .person-rank {
+    white-space: normal !important;
+  }
+
+  .print-report-table .rounded-full {
+    border: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    color: #111827 !important;
+    font-size: inherit !important;
+  }
+
+  .print-report-table .rounded-full>span:first-child {
+    display: none !important;
+  }
+
+  .print-report-footer {
+    margin-top: 8mm;
+    padding-top: 2mm;
+    border-top: 1px solid #cbd5e1;
+    color: #64748b;
+    font-size: 8pt;
+    text-align: center;
+  }
+
+  .page-break {
+    break-after: page;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
