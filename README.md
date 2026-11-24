@@ -2,122 +2,122 @@
 
 <img src="public/entity-logo.png" alt="LeaveFlow" width="120" />
 
-# LeaveFlow - نظام إدارة واعتماد الإجازات
+# LeaveFlow - Leave Management & Approval System
 
-نظام ويب متكامل لإدارة إجازات الموظفين واعتمادها بمرحلتين - من تقديم الطلب حتى العرض والأرشفة - بواجهة عربية كاملة الاتجاه (RTL) مصممة للجهات الرسمية.
+A complete web system for managing employee leave and approving it in two stages - from request submission through review to archiving - with a fully Arabic, right-to-left (RTL) interface designed for official organisations.
 
 *A complete leave-management and two-stage approval system for government-style organisations - employee directory, approval workflow, calendar, reports and a full audit trail. Arabic-first, fully RTL, installable as a PWA.*
 
 </div>
 
-![لوحة المتابعة](docs/screenshots/dashboard-mock-macbook.png)
+![Dashboard](docs/screenshots/dashboard-mock-macbook.png)
 
-## لمحة سريعة
+## At a Glance
 
-- **سير اعتماد بمرحلتين:** تدقيق وإحالة من مكتب المدير العام، ثم عرض واعتماد من مكتب رئيس الجهة، مع إمكانية الإرجاع بسبب أو الأرشفة أو إعادة الفتح من الإدارة.
-- **لوحة متابعة حية:** من في العمل اليوم، من في إجازة، الإجازات القادمة، وحالة كل مرحلة من مراحل الطلبات.
-- **دليل موظفين كامل:** المسميات الوظيفية، القطاعات والإدارات، مع فلاتر بحث وملف لكل موظف يعرض إجازته الحالية والقادمة وسجله الكامل.
-- **سجل إجازات وتقويم:** سجل شامل بتبويبات الحالة (جارية / قادمة / منتهية / مؤرشفة)، وتقويم شهري يعرض توزيع الإجازات.
-- **تقارير وسجل عمليات:** تقارير قابلة للطباعة بترويسة رسمية، وسجل تدقيق (Audit Trail) لكل إجراء داخل النظام.
-- **دخول آمن:** تسجيل بالرقم المدني + رمز PIN وجلسات OTP، وصلاحيات مفصلة حسب الدور ونطاق العمل (قطاع / إدارة).
-- **PWA عربي بالكامل:** قابل للتثبيت، ويعمل كتطبيق ويب على الموبايل (Mobile Web App) وسطح المكتب بنفس الواجهة والبيانات - خط Cairo، وتجربة متجاوبة من الجوال حتى الشاشات الكبيرة.
+- **Two-stage approval workflow:** review and referral by the Director General's office, then presentation and approval by the head of the organisation's office, with return-with-reason, archiving, and reopening by the administration.
+- **Live dashboard:** who is at work today, who is on leave, upcoming leaves, and the status of every stage of the requests.
+- **Complete employee directory:** job titles, sectors and departments, with search filters and a profile for every employee showing their current and upcoming leave and their full history.
+- **Leave register & calendar:** a complete register with status tabs (current / upcoming / completed / archived), and a monthly calendar showing the distribution of leaves.
+- **Reports & audit trail:** printable reports with an official header, and an audit trail for every action inside the system.
+- **Secure sign-in:** sign-in with civil ID + PIN code and OTP sessions, with detailed permissions by role and work scope (sector / department).
+- **Fully Arabic PWA:** installable, and works as a mobile web app and on desktop with the same interface and data - Cairo font, and a responsive experience from phones to large screens.
 
-## لقطات من النظام
+## System Screenshots
 
-| شاشة الدخول | مراجعة واعتماد الطلبات |
+| Sign-in screen | Request review & approval |
 | --- | --- |
-| ![شاشة الدخول](docs/screenshots/login-mock-macbook.png) | ![المراجعة](docs/screenshots/review-mock-macbook.png) |
+| ![Sign-in screen](docs/screenshots/login-mock-macbook.png) | ![Review](docs/screenshots/review-mock-macbook.png) |
 
-| سجل الإجازات | دليل الموظفين |
+| Leave register | Employee directory |
 | --- | --- |
-| ![سجل الإجازات](docs/screenshots/leaves-mock-macbook.png) | ![الموظفون](docs/screenshots/leaders-mock-macbook.png) |
+| ![Leave register](docs/screenshots/leaves-mock-macbook.png) | ![Employees](docs/screenshots/leaders-mock-macbook.png) |
 
-| ملف الموظف |
+| Employee profile |
 | --- |
-| ![ملف الموظف](docs/screenshots/leader-detail-mock-macbook.png) |
+| ![Employee profile](docs/screenshots/leader-detail-mock-macbook.png) |
 
-## نسخة الموبايل (PWA)
+## Mobile Version (PWA)
 
-النظام تطبيق ويب تقدمي (PWA) يُثبّت على الجوال ويعمل بنفس الواجهة والبيانات على الموبايل وسطح المكتب - تنقّل سفلي، بطاقات متكيفة، وكل مراحل الاعتماد من الهاتف:
+The system is a progressive web app (PWA) that installs on phones and works with the same interface and data on mobile and desktop - bottom navigation, adaptive cards, and every approval stage from the phone:
 
-| شاشة الدخول | لوحة المتابعة | مراجعة الطلبات |
+| Sign-in screen | Dashboard | Request review |
 | --- | --- | --- |
-| ![شاشة الدخول على الموبايل](docs/screenshots/login-mock-iphone.png) | ![لوحة المتابعة على الموبايل](docs/screenshots/dashboard-mock-iphone.png) | ![مراجعة الطلبات على الموبايل](docs/screenshots/review-mock-iphone.png) |
+| ![Sign-in screen on mobile](docs/screenshots/login-mock-iphone.png) | ![Dashboard on mobile](docs/screenshots/dashboard-mock-iphone.png) | ![Request review on mobile](docs/screenshots/review-mock-iphone.png) |
 
-| دليل الموظفين | سجل الإجازات |
+| Employee directory | Leave register |
 | --- | --- |
-| ![دليل الموظفين على الموبايل](docs/screenshots/leaders-mock-iphone.png) | ![سجل الإجازات على الموبايل](docs/screenshots/leaves-mock-iphone.png) |
+| ![Employee directory on mobile](docs/screenshots/leaders-mock-iphone.png) | ![Leave register on mobile](docs/screenshots/leaves-mock-iphone.png) |
 
-## التقنيات
+## Tech Stack
 
-| الطبقة | التقنية |
+| Layer | Technology |
 | --- | --- |
-| الواجهة | React 18 + TypeScript + Vite 5 |
-| التنسيق | Tailwind CSS 3، أيقونات Lucide |
-| التوجيه والحالة | React Router 7 |
-| قاعدة البيانات والمصادقة | Supabase (PostgreSQL + Auth + RLS + RPC) |
-| دوال طرفية | Supabase Edge Functions (دالة `civil-auth` لدخول الرقم المدني) |
-| التواريخ | date-fns |
-| النشر | PWA (manifest + أيقونات) - أي استضافة ثابتة + مشروع Supabase |
+| Frontend | React 18 + TypeScript + Vite 5 |
+| Styling | Tailwind CSS 3, Lucide icons |
+| Routing & state | React Router 7 |
+| Database & auth | Supabase (PostgreSQL + Auth + RLS + RPC) |
+| Edge functions | Supabase Edge Functions (the `civil-auth` function for civil-ID sign-in) |
+| Dates | date-fns |
+| Deployment | PWA (manifest + icons) - any static hosting + a Supabase project |
 
-## بنية المشروع
+## Project Structure
 
 ```
 src/
-  pages/         الشاشات (لوحة المتابعة، المراجعة، الإجازات، الموظفون، التقويم، التقارير...)
-  pages/admin/   شاشات الإدارة (المستخدمون، الهيكل التنظيمي، سجل العمليات)
-  components/    مكونات مشتركة (الشريط الجانبي، النماذج، الترويسات)
-  lib/           عميل Supabase وأدوات الاتصال
-  lib/showcase/  وضع العرض التجريبي (بيانات وهمية داخل المتصفح)
+  pages/         screens (dashboard, review, leaves, employees, calendar, reports...)
+  pages/admin/   admin screens (users, organisational structure, audit log)
+  components/    shared components (sidebar, forms, headers)
+  lib/           Supabase client and connection utilities
+  lib/showcase/  demo showcase mode (fictional data inside the browser)
 supabase/
-  migrations/          مخطط قاعدة البيانات والبيانات المرجعية وسياسات الأمان
-  full_schema_setup.sql  إعداد كامل بقاعدة بيانات جديدة بخطوة واحدة
-  functions/civil-auth/  دالة الدخول بالرقم المدني
+  migrations/          database schema, reference data and security policies
+  full_schema_setup.sql  full setup for a new database in one step
+  functions/civil-auth/  civil-ID sign-in function
 ```
 
-## التشغيل محليًا
+## Running Locally
 
-### 1) وضع العرض التجريبي (بدون أي خادم)
+### 1) Demo showcase mode (no server needed)
 
-النسخة المعروضة في اللقطات أعلاه تعمل ببيانات وهمية بالكامل داخل المتصفح:
+The version shown in the screenshots above runs on fully fictional data inside the browser:
 
 ```bash
 npm install
 VITE_SHOWCASE_MOCK=1 npm run dev
 ```
 
-ثم ادخل بأي رقم مدني من 12 خانة وأي رمز PIN من 4 أرقام - ستسجل دخولك كمدير النظام مع كامل البيانات التجريبية.
+Then sign in with any 12-digit civil ID and any 4-digit PIN code - you will be signed in as the system administrator with the full demo data.
 
-> **ملاحظة العرض (Showcase):** هذه النسخة مخصصة للعرض والمراجعة. الجهة الظاهرة («الجهة الحكومية») جهة افتراضية، وجميع الأسماء والبيانات مولّدة ووهمية. وضع العرض يعمل فقط عند تمرير `VITE_SHOWCASE_MOCK=1` صراحة وقت البناء، وهو **مغلق افتراضيًا** - أي بناء أو نشر عادي يستخدم عميل Supabase الحقيقي كما هو، ولا يمكن تفعيل الوضع الوهمي بالخطأ.
+> **Showcase note:** this copy is prepared for presentation and review. The organisation shown (a generic "Government Entity") is fictional, and all names and data are generated and fictional. Showcase mode runs only when `VITE_SHOWCASE_MOCK=1` is passed explicitly at build time, and it is **off by default** - any normal build or deployment uses the real Supabase client as-is, and the fictional mode cannot be activated by accident.
 
-### 2) التشغيل مع Supabase حقيقي
+### 2) Running with a real Supabase
 
-1. أنشئ مشروعًا جديدًا في [Supabase](https://supabase.com).
-2. طبّق مخطط قاعدة البيانات: نفّذ `supabase/full_schema_setup.sql` من محرر SQL، أو طبّق ملفات `supabase/migrations/` بالترتيب.
-3. انشر دالة الدخول الطرفية:
+1. Create a new project on [Supabase](https://supabase.com).
+2. Apply the database schema: run `supabase/full_schema_setup.sql` from the SQL editor, or apply the files in `supabase/migrations/` in order.
+3. Deploy the edge sign-in function:
 
    ```bash
    supabase functions deploy civil-auth
    ```
 
-4. أنشئ ملف `.env` في جذر المشروع:
+4. Create a `.env` file in the project root:
 
    ```env
    VITE_SUPABASE_URL=https://your-project.supabase.co
    VITE_SUPABASE_ANON_KEY=your-anon-key
    ```
 
-5. شغّل التطبيق:
+5. Run the app:
 
    ```bash
    npm install
    npm run dev
    ```
 
-## أوامر مفيدة
+## Useful Commands
 
 ```bash
-npm run build       # بناء الإنتاج
-npm run typecheck   # فحص الأنواع
-npm run preview     # معاينة بناء الإنتاج محليًا
+npm run build       # production build
+npm run typecheck   # type checking
+npm run preview     # preview the production build locally
 ```
